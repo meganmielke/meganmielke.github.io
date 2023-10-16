@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.foodImage {
+    width: 400px;
+    border-style: solid;
+}
+.sideBySide {
+    display: flex;
+}
+body {
+}
+body {
+}
