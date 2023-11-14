@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href="css/truism.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div>
+  <video id="displayed_video" muted="muted" autoplay="autoplay" loop="loop" >
+    <source src="video/truism.mp4" type="video/mp4">
+  </video>
+</div>
+	
+<div class="centered_text">
+<h1 id="truism" onmouseover="onTruismText()" onmouseout="outTruismText()" onClick="changeVideo()">a positive attitude means all the difference in the world</h1>
+</div>
+	
+<script>
+	
+var channel = 1;
+var pausedAt = 0;
+	
+	//reference to video element
+	
+var displayed_video = document.getElementById("displayed_video");
+	
+	// references to the videos
+	
+var truism = "video/truism.mp4";
+var truismvid = "video/truismvid.mp4";
+	
+	//stuff for sound
+
+var mySound = new Audio("sound/brighter_days.mp3");
+
+function onTruismText(){
+	console.log("clicked truism text");
+	document.getElementById("displayed_video").style.filter = "saturate(200%)";
+}
+	
+function outTruismText(){
+	console.log("moving out of truism text");
+	document.getElementById("displayed_video").style.filter = "saturate(100%)";
+}
+	
+function changeVideo(){
+	console.log("will change video");
+	pausedAt = displayed_video.currentTime;
+	if (channel == 0){
+		displayed_video.src = truism;
+		displayed_video.currentTime = pausedAt;
+		channel = 1;
+	}
+	else{
+		displayed_video.src = truismvid;
+		displayed_video.currentTime = pausedAt;
+		channel = 0;
+	}
+	
+	mySound.play();
+}
+	
+</script>
+	
+	
+</body>
+</html>
